@@ -1,3 +1,9 @@
+dep 'java' do
+  requires {
+    otherwise 'java.managed'
+  }
+end
+
 dep 'java.managed' do
   setup {
     unless shell "cat /etc/apt/sources.list | grep '^\s*deb.*partner'"
