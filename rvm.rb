@@ -6,24 +6,15 @@ dep 'rvm' do
 end
 
 dep 'install.rvm' do
-  requires 'readline.managed'
-
   if confirm("Install rvm system-wide?", :default => 'n')
-    requires 'system wide installation.rvm'
+    log_error 'not supported yet :)'
   else
     requires 'user only installation.rvm'
   end
 end
 
-dep 'system wide installation.rvm' do
-  met? { raw_which 'rvm', login_shell('which rvm') }
-  meet {
-  }
-end
-
 dep 'user only installation.rvm' do
-#  met? { raw_which 'rvm', login_shell('which rvm') }
-  met? { false }
+  met? { raw_which 'rvm', login_shell('which rvm') }
   meet {
     log_shell "Installing rvm using rvm-install-head", 'bash -c "`curl http://rvm.beginrescueend.com/releases/rvm-install-head`"'
   }
@@ -48,6 +39,28 @@ dep 'uninstall.rvm' do
     shell 'rvm implode'
   }
   after {
-    sudo 'rm -r /etc/r'
+    log_block "Removing rvm files" do
+      shell 'rm -rf ~/.rvm'
+    end
+  }
+end
+
+dep 'readline.rvm' do
+  requires 'readline.managed'
+
+  met? {
+    in_dir '~/.rvm/src' do
+      !Dir['readline*'].empty?
+    end
+  }
+
+  meet { log_shell 'Downloading and installing readline package', "rvm package install readline" }
+end
+
+dep 'ruby 1.8.7 with.rvm' do
+  requires 'rvm', 'readline.managed'
+  met? { shell 'rvm list | grep 1.8.7' }
+  meet {
+    log_shell 'Installing ruby 1.8.7 under rvm', 'rvm install 1.8.7 --with-readline-dir=~/.rvm/usr'
   }
 end
