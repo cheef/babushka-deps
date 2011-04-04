@@ -43,8 +43,7 @@ dep "clear.hh_enders_client" do
 end
 
 dep "configured.hh_enders_client" do
-  requires_when_unmet 'java', 'jogl'
-  requires 'installed.hh_enders_client'
+  requires 'java', 'jogl', 'installed.hh_enders_client'
 
   setup {
     define_var :install_path, :default => default_path, :message => "Where would you like H&H Ender's client installed"
@@ -57,7 +56,7 @@ dep "configured.hh_enders_client" do
   meet {
     in_dir var(:install_path) do
       log_shell "Creating execution script", %{echo '#{execution_script}' > '#{var :runner_path}' }
-    end                          #!/bin/sh
+    end
   }
 
   after { sudo %{chmod +x '#{var(:runner_path)}'} }
@@ -65,7 +64,7 @@ end
 
 dep 'installed.hh_enders_client' do
 
-  requires 'writable.install_path', 'build.hh_enders_client'
+  requires_when_unmet 'build.hh_enders_client'
 
   met? { File.exists? File.expand_path( var(:install_path) ) }
   meet {
@@ -77,7 +76,7 @@ dep 'installed.hh_enders_client' do
 end
 
 dep "build.hh_enders_client" do
-  requires "downloaded.hh_enders_client", 'ant'
+  requires_when_unmet "downloaded.hh_enders_client", 'ant'
 
   met?  {
     in_build_dir application_name do

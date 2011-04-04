@@ -4,5 +4,5 @@ end
 
 dep 'jogl.managed' do
   installs { via :apt, %w[libjogl-java libjogl-jni] }
-  provides 'java'
+  provides []
 end

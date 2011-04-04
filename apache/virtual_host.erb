@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+	ServerName <%= domain_name %>
+	RailsEnv <%= var(:rails_env) %>
+	DocumentRoot <%= public_path %>
+
+	<Directory <%= public_path %>>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog <%=  logs_path %>/error.log
+	CustomLog <%=  logs_path %>/access.log combined
+</VirtualHost>
