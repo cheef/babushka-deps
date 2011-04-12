@@ -1,4 +1,7 @@
 dep 'bison.managed' do
-  installs { via :apt, 'bison' }
-  provides ['bison']
+  installs do
+    via :apt, 'bison'
+  end
+
+  provides 'bison'
 end

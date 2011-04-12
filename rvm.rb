@@ -72,7 +72,7 @@ dep 'ruby 1.9.2-head with.rvm' do
   requires_when_unmet 'bison.managed', 'readline.managed', 'autoconf'
 
   met? { shell 'rvm list | grep 1.9.2-head' }
-  meet {
+  meet do
     log_shell 'Installing ruby 1.9.2-head under rvm', 'rvm install 1.9.2-head --with-readline-dir=~/.rvm/usr'
-  }
+  end
 end
