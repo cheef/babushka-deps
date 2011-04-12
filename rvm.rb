@@ -58,9 +58,21 @@ dep 'readline.rvm' do
 end
 
 dep 'ruby 1.8.7 with.rvm' do
-  requires 'rvm', 'readline.managed'
+  requires 'rvm'
+  requires_when_unmet 'readline.managed'
+
   met? { shell 'rvm list | grep 1.8.7' }
   meet {
     log_shell 'Installing ruby 1.8.7 under rvm', 'rvm install 1.8.7 --with-readline-dir=~/.rvm/usr'
+  }
+end
+
+dep 'ruby 1.9.2-head with.rvm' do
+  requires 'rvm'
+  requires_when_unmet 'bison.managed', 'readline.managed', 'autoconf'
+
+  met? { shell 'rvm list | grep 1.9.2-head' }
+  meet {
+    log_shell 'Installing ruby 1.9.2-head under rvm', 'rvm install 1.9.2-head --with-readline-dir=~/.rvm/usr'
   }
 end
