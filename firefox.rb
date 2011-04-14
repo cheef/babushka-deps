@@ -1,11 +1,11 @@
 dep 'latest firefox' do
-  requires { on :ubuntu, 'firefox.ppa' }
-  requires 'firefox.managed'
-  #requires 'apt-show-versions'
+  requires_when_unmet { on :ubuntu, 'firefox.ppa' }
+  requires_when_unmet 'firefox.managed'
+  requires 'apt-show-versions.managed'
 
-  met? {
-    shell('apt-show-versions firefox').split('\n').grep('(.*) upgradeable from (.*) to (.*)').empty?
-  }
+  met? do
+    grep_in_shell('apt-show-versions firefox', '(.*) upgradeable from (.*) to (.*)').empty?
+  end
 
   meet {
     log_block "Updating firefox" do

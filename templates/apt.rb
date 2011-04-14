@@ -36,3 +36,39 @@ meta :apt_removed do
 
   end
 end
+
+meta :apt_repository do
+  accepts_list_for :url
+  accepts_list_for :distribution
+  accepts_list_for :components
+
+  def sources_path
+    '/etc/apt/sources.list'
+  end
+
+  def deb
+    "deb #{url} #{distribution.blank? ? System.codename : distribution} #{components}"
+  end
+
+  template do
+    met? { grep deb, sources_path }
+
+    meet do
+      log_block "Adding `#{deb}` to sources" do
+        shell %{echo "#{deb}" >> #{sources_path}}, :sudo => true
+      end
+    end
+
+    after { Babushka::AptHelper.update_pkg_lists }
+  end
+end
+
+meta :apt_key do
+  accepts_list_for :url
+  accepts_list_for :key_for
+
+  template do
+    met? { sudo %{apt-key list | grep '#{key_for}'} }
+    meet { sudo %{wget -q #{url} -O- | sudo apt-key add -} }
+  end
+end

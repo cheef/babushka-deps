@@ -1,10 +1,7 @@
-dep 'apt-show-versions' do
-  met? {
-    puts shell('dpkg --help')
-    shell('dpkg -s apt-show-versions').split('\n').grep(/is not installed/).empty?
-  }
+dep 'apt-show-versions.managed' do
+  installs do
+    via :apt, 'apt-show-versions'
+  end
 
-  meet {
-    sudo 'apt-get install apt-show-versions -y'
-  }
+  provides 'apt-show-versions'
 end
