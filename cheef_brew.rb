@@ -1,5 +1,7 @@
 dep 'cheef-brew' do
-  requires do
-    on :ubuntu, 'rails-station'
-  end
+  requires 'rails-station',
+           'deadbeef',
+           'latest thunderbird',
+           'virtual_box',
+           'dropbox'
 end

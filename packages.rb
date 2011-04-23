@@ -7,3 +7,7 @@ dep 'python-docutils.managed' do
   installs { via :apt, 'python-docutils' }
   provides []
 end
+
+dep 'intltool.managed' do
+  provides 'intltool-merge'
+end
