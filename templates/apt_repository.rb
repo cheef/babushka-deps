@@ -20,6 +20,6 @@ meta :apt_repository do
       end
     end
 
-    after { Babushka::AptHelper.update_pkg_lists }
+    after { sudo 'apt-get update' }
   end
 end
