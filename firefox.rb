@@ -1,5 +1,5 @@
 dep 'latest firefox' do
-  requires_when_unmet { on :ubuntu, 'firefox.ppa' }
+  requires { on :ubuntu, 'firefox.ppa' }
   requires_when_unmet 'firefox.managed'
   requires 'apt-show-versions.managed'
 

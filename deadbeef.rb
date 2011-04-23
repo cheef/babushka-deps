@@ -11,3 +11,9 @@ dep 'deadbeef.managed' do
   installs { via :apt, 'deadbeef' }
   provides 'deadbeef'
 end
+
+# Wanna this someday :)
+#
+# wanna 'deadbeef' do
+#   via :ppa => 'alexey-smirnov/deadbeef'
+# end
