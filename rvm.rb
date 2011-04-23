@@ -22,7 +22,7 @@ end
 
 dep 'load rvm scripts.rvm' do
   met? do
-    in_dir '~', do
+    in_dir '~' do
       grep 'rvm/scripts/rvm', '.bashrc'
     end
   end
