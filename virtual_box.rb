@@ -4,7 +4,7 @@ end
 
 dep 'virtual_box.apt_repository' do
   url "http://download.virtualbox.org/virtualbox/debian"
-  components "contrib non-free"
+  components "contrib", "non-free"
 end
 
 dep 'virtual_box.apt_key' do
@@ -14,9 +14,6 @@ end
 
 dep 'virtual_box.managed' do
   requires_when_unmet 'virtual_box.apt_repository', 'virtual_box.apt_key'
-
-  setup { set :package, 'virtualbox-4.0' }
-  met?  { found?( var(:package), shell('dpkg --list') ) && !which(var :package) }
-  meet  { sudo "apt-get install #{var :package} -y"}
-
+  installs 'virtualbox-4.0'
+  provides 'virtualbox'
 end
