@@ -22,13 +22,13 @@ end
 
 dep 'load rvm scripts.rvm' do
   met? do
-    in_dir '~' do
+    cd '~' do
       grep 'rvm/scripts/rvm', '.bashrc'
     end
   end
 
   meet do
-    in_dir '~' do
+    cd '~' do
       append_to_file %{[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"}, '.bashrc'
     end
   end
@@ -48,7 +48,7 @@ dep 'readline.rvm' do
   requires 'readline.managed'
 
   met? do
-    in_dir '~/.rvm/src' do
+    cd '~/.rvm/src' do
       !Dir['readline*'].empty?
     end
   end

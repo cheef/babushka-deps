@@ -54,7 +54,7 @@ dep "configured.hh_enders_client" do
 
   met? { File.exists? var(:runner_path) }
   meet {
-    in_dir var(:install_path) do
+    cd var(:install_path) do
       log_shell "Creating execution script", %{echo '#{execution_script}' > '#{var :runner_path}' }
     end
   }
