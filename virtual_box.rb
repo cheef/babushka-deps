@@ -16,7 +16,7 @@ dep 'virtual_box.managed' do
   requires_when_unmet 'virtual_box.apt_repository', 'virtual_box.apt_key'
 
   setup { set :package, 'virtualbox-4.0' }
-  met? { shell(%{dpkg --list | grep #{var :package}}) && !which(var :package) }
-  meet { sudo "apt-get install #{var :package} -y"}
+  met?  { found?( var(:package), shell('dpkg --list') ) && !which(var :package) }
+  meet  { sudo "apt-get install #{var :package} -y"}
 
 end

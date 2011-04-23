@@ -12,6 +12,6 @@ class System
   end
 
   def self.codename
-    shell(%{lsb_release -c}).grep(/Codename:\s*(.*)/){ $1 }
+    look_for /Codename:\s*(.*)/, shell('lsb_release -c') { $1 }
   end
 end
