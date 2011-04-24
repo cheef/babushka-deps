@@ -8,9 +8,14 @@ dep 'rubymine.src' do
   provides 'mine'
 
   setup do
-    define_var :install_path, :default => '/usr/local/rubymine', :message => "Where would you like RubyMine installed"
+    if predefined_path = var(:rubymine_install_path, :ask => false)
+      set :install_path, predefined_path
+    end
+
+    define_var :install_path, :default => '/usr/local/rubymine',
+               :message => "Where would you like RubyMine installed"
     set :executable_path, '/usr/local/bin'
-    set :sudo, var(:install_path).p.writable?
+    set :sudo, !var(:install_path).p.writable?
   end
 
   process_source do
@@ -32,6 +37,10 @@ dep 'uninstall.rubymine' do
   requires 'uninstall personal data.rubymine'
 
   setup do
+    if predefined_path = var(:rubymine_install_path, :ask => false)
+      set :install_path, predefined_path
+    end
+
     define_var :install_path, :default => '/usr/local/rubymine', :message => "RubyMine installed previously to"
     set :executable_path, '/usr/local/bin'
     set :files, [ var(:install_path), var(:executable_path).p/'mine' ]

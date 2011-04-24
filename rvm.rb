@@ -3,7 +3,7 @@ dep 'rvm' do
 end
 
 dep 'installed.rvm' do
-  if confirm("Install rvm system-wide?", :default => 'n')
+  if !var(:rvm_under_current_user, :ask => false) && confirm("Install rvm system-wide?", :default => 'n')
     log_error 'not supported yet :)'
   else
     requires 'installed under current user.rvm', 'setup auto-loading.rvm'
