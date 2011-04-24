@@ -7,6 +7,6 @@ dep 'rails-station' do
            'rubymine',
            'balsamiq',
            'latest meld',
-           'latest coffee-script',
-           'nginx'
+           'nginx',
+           'latest coffee-script'
 end
