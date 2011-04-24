@@ -6,5 +6,7 @@ dep 'rails-station' do
            'ruby 1.9.2-head with.rvm_ruby',
            'rubymine',
            'balsamiq',
-           'latest meld'
+           'latest meld',
+           'latest coffee-script',
+           'nginx'
 end
