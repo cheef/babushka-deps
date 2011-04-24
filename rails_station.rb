@@ -8,6 +8,7 @@ dep 'rails-station' do
            'balsamiq',
            'latest meld',
            'nginx',
+           'postgres',
            'latest coffee-script'
 
   setup do

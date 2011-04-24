@@ -10,7 +10,7 @@ dep 'create project on.rails' do
   requires 'rails.gem', 'configured.www'
 
   setup do
-    define_var :application,   :message => "What is application name to be created"
+    define_var :application,   :message => "Application name"
     define_var :rails_options, :default => '-d postgresql -TJ', :message => 'Use this options for rails'
     set        :rails_env, 'development'
   end
@@ -34,4 +34,14 @@ dep 'create project on.rails' do
     end
     log_error result.stderr unless result.stderr.blank?
   end
+end
+
+dep 'rails project with nginx proxy' do
+  requires 'configured.nginx',
+           'setup project on.rails',
+           'create proxy.nginx',
+           'add host mapping.www',
+           'unicorn.gem'
+
+  setup { set :ip, "127.0.0.1" }
 end

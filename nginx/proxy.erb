@@ -1,0 +1,10 @@
+server {
+    listen      80;
+	root        <%= var(:rails_root).p/'public' %>;
+	server_name <%= var(:domain) %>;
+
+	location / {
+		proxy_pass http://127.0.0.1:<%= var(:port) %>;
+        proxy_set_header Host $host;
+	}
+}

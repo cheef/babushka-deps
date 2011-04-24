@@ -23,3 +23,17 @@ dep 'create nginx default site' do
   meet  { nginx.sites.create 'nginx/default-host.conf.erb', :to => 'default' }
   after { nginx.restart! }
 end
+
+dep 'create site.nginx' do
+  setup { set :domain, [ var(:application), 'com', current_user ].join('.') }
+  met?  { nginx.sites.include? var(:domain) }
+  meet  { nginx.sites.create 'nginx/site.erb', :to => var(:domain) }
+  after { nginx.restart! }
+end
+
+dep 'create proxy.nginx' do
+  setup { set :domain, [ var(:application), 'com', current_user ].join('.') }
+  met?  { nginx.sites.include? var(:domain) }
+  meet  { nginx.sites.create 'nginx/proxy.erb', :to => var(:domain) }
+  after { nginx.restart! }
+end

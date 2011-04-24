@@ -1,0 +1,14 @@
+server {
+    listen      80;
+	root        <%= var(:application_root) %>;
+	index       index.html index.htm;
+	server_name <%= var(:application) %>;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to index.html
+		try_files $uri $uri/ /index.html;
+	}
+
+	error_page 404 /404.html;
+}

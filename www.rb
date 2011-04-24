@@ -6,10 +6,7 @@ end
 
 dep 'configured.www' do
   requires 'existed.www'
-  setup {
-    set :www_group, 'www-data'
-    p 'www setup caller'
-  }
+  setup { set :www_group, 'www-data' }
   met?  { var(:www_path).p.group == var(:www_group) }
   meet  { sudo "chgrp #{var(:www_group)} #{var(:www_path)}" }
 end
