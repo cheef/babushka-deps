@@ -32,12 +32,12 @@ dep 'readline.managed' do
   provides []
 end
 
-dep 'vpnc.managed' do
-  installs { via :apt, 'vpnc' }
-  provides []
-end
-
 dep 'apt-show-versions.managed' do
   installs { via :apt, 'apt-show-versions' }
   provides 'apt-show-versions'
+end
+
+dep 'libgcrypt11-dev.managed' do
+  installs { via :apt, 'libgcrypt11-dev' }
+  provides []
 end
