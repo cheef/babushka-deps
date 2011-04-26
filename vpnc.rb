@@ -34,6 +34,20 @@ dep 'pcf2vpnc.vpnc' do
   after { shell "rm -rf #{var :package}" }
 end
 
+dep "install pcf config.vpnc" do
+  requires "installed cisco tools.vpnc"
+
+  setup do
+    define_var :config_name, :message => 'It is correct name for VPNC config'
+    define_var :config_path, :message => 'Path for pfc config'
+  end
+
+  met? { "/etc/vpnc/#{var(:config_name)}.conf".p.exists? }
+  meet do
+    sudo "pcf2vpnc #{var(:config_path).p} /etc/vpnc/#{var(:config_name)}.conf"
+  end
+end
+
 dep "installed cisco tools.vpnc" do
   requires 'cisco-decrypt.vpnc', 'pcf2vpnc.vpnc'
 end
