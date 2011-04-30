@@ -32,11 +32,6 @@ dep 'readline.managed' do
   provides []
 end
 
-dep 'vpnc.managed' do
-  installs { via :apt, 'vpnc' }
-  provides []
-end
-
 dep 'apt-show-versions.managed' do
   installs { via :apt, 'apt-show-versions' }
   provides 'apt-show-versions'
@@ -64,4 +59,9 @@ dep('gstreamer0.10-plugins-bad.managed')  { provides [] }
 dep('gstreamer0.10-plugins-ugly.managed') { provides [] }
 dep('gstreamer0.10-ffmpeg.managed')       { provides [] }
 dep('gstreamer0.10-fluendo-mp3.managed')  { provides [] }
+
+dep 'libgcrypt11-dev.managed' do
+  installs { via :apt, 'libgcrypt11-dev' }
+  provides []
+end
 
