@@ -22,14 +22,9 @@ dep 'installed under current user.rvm' do
 end
 
 dep 'setup auto-loading.rvm' do
-  met? do
-    cd('~') { grep 'rvm/scripts/rvm', '.bashrc' }
-  end
-
+  met? { grep 'rvm/scripts/rvm', '~/.'.p/'.bashrc' }
   meet do
-    cd '~' do
-      append_to_file %{[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"}, '.bashrc'
-    end
+    append_to_file %{[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"}, '~/.'.p/'.bashrc'
   end
 end
 

@@ -41,3 +41,27 @@ dep 'apt-show-versions.managed' do
   installs { via :apt, 'apt-show-versions' }
   provides 'apt-show-versions'
 end
+
+dep('unrar') { requires 'unrar.managed' }
+dep 'unrar.managed'
+
+dep 'xmlstarlet.managed'
+
+dep 'gstreamer plugins' do
+  requires 'gstreamer0.10-plugins-bad.managed',
+           'gstreamer0.10-plugins-ugly.managed'
+end
+
+dep 'gstreamer audio' do
+  requires 'gstreamer0.10-fluendo-mp3.managed'
+end
+
+dep 'gstreamer video' do
+  requires 'gstreamer0.10-ffmpeg.managed'
+end
+
+dep('gstreamer0.10-plugins-bad.managed')  { provides [] }
+dep('gstreamer0.10-plugins-ugly.managed') { provides [] }
+dep('gstreamer0.10-ffmpeg.managed')       { provides [] }
+dep('gstreamer0.10-fluendo-mp3.managed')  { provides [] }
+

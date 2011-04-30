@@ -1,0 +1,8 @@
+#! /bin/sh -e
+echo “Found <%= var(:os) %>” >&2
+cat << EOF
+menuentry “<%= var(:os) %>″ {
+set root=(hd0,<%= var(:disk_num) %>)
+chainloader +1
+}
+EOF
