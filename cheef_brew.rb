@@ -25,6 +25,7 @@ dep 'cheef-brew' do
 
            'latest thunderbird',
            'adobe flash',
+           'skype',
            'virtual_box',
            'dropbox from sources'
 end
