@@ -8,6 +8,7 @@ dep 'cheef-brew' do
   requires 'rails-station',
            'unrar',
            'keepassx',
+           'terminator.managed',
 
            'latest firefox',
            'firebug.firefox_extension',

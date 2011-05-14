@@ -1,6 +1,6 @@
 dep 'vpnc.managed' do
   installs { via :apt, 'vpnc', 'network-manager-vpnc', 'resolvconf' }
-  provides 'vpnc'
+  provides %w(vpnc vpnc-disconnect)
 end
 
 dep 'cisco-decrypt.vpnc' do
