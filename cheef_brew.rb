@@ -9,6 +9,7 @@ dep 'cheef-brew' do
            'unrar',
            'keepassx',
            'terminator.managed',
+           'compizconfig-settings-manager.managed',
 
            'latest firefox',
            'firebug.firefox_extension',

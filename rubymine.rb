@@ -66,3 +66,23 @@ dep 'uninstall personal data.rubymine' do
     end
   end
 end
+
+#dep 'rubymine coffee-brew' do
+#  met? { false }
+#  meet do
+#    handle_source 'http://plugins.intellij.net/files/org.coffebrew_9097.jar'
+#  end
+#end
+#
+#dep 'rubymine coffee-theme' do
+#  met? { false }
+#  meet do
+#    handle_source 'https://github.com/netzpirat/coffee-brew/raw/master/resources/theme/CoffeeBrew.xml'
+#  end
+#end
+#dep 'rubymine markdown' do
+#  met? { false }
+#  meet do
+#    handle_source 'http://plugins.intellij.net/files/org.markdown_9533.jar'
+#  end
+#end

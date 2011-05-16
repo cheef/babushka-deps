@@ -67,6 +67,6 @@ end
 
 dep('libxslt1-dev.managed') { provides [] }
 dep('libxml2-dev.managed')  { provides [] }
-
 dep('terminator.managed') { provides 'terminator' }
+dep('compizconfig-settings-manager.managed') { provides [] }
 
