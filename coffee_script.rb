@@ -8,3 +8,14 @@ dep 'coffee-script.src' do
   build     { shell "bin/cake build" }
   install   { shell "bin/cake install" }
 end
+
+dep 'coffee-brew theme.src' do
+  requires 'rubymine'
+
+  source 'https://github.com/netzpirat/coffee-brew/raw/master/resources/theme/CoffeeBrew.xml'
+  process_source do
+    log_shell "Copying theme to rubymine folder", sheel("cp CoffeeBrew.xml #{'~/.RubyMine31/config/colors'.p/'CoffeeBrew.xml'}")
+  end
+  met? { false }
+
+end

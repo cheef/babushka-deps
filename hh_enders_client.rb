@@ -43,7 +43,7 @@ dep "clear.hh_enders_client" do
 end
 
 dep "configured.hh_enders_client" do
-  requires 'java', 'jogl', 'installed.hh_enders_client'
+  requires 'java-6-sun', 'jogl', 'installed.hh_enders_client'
 
   setup {
     define_var :install_path, :default => default_path, :message => "Where would you like H&H Ender's client installed"

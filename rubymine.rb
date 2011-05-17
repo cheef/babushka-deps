@@ -3,7 +3,8 @@ dep 'rubymine' do
 end
 
 dep 'rubymine.src' do
-  requires 'java'
+  requires 'switched to java-6-sun'
+
   source "http://download.jetbrains.com/ruby/RubyMine-3.1.1.tar.gz"
   provides 'mine'
 
@@ -52,7 +53,7 @@ dep 'uninstall.rubymine' do
 
   meet do
     var(:files).delete_if{ |file| not file.p.exists? }.each do |file|
-      log_shell "Uninstall RubyMine file '#{file.p}'", shell(%{rm -rf '#{file}'})
+      log_shell "Uninstall RubyMine file '#{file.p}'", file.p.rm
     end
   end
 end
