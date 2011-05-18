@@ -17,6 +17,6 @@ dep 'Gemfile' do
 end
 
 dep 'bundler.gem' do
-  installs 'bundler >= 1.0.12'
+  installs 'bundler >= 1.0.13'
   provides 'bundle'
 end

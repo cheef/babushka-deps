@@ -35,7 +35,7 @@ dep 'pcf2vpnc.vpnc' do
 end
 
 dep "install pcf config.vpnc" do
-  requires "installed cisco tools.vpnc"
+  requires "vpnc.managed", "installed cisco tools.vpnc"
 
   setup do
     define_var :config_name, :message => 'It is correct name for VPNC config'

@@ -27,9 +27,9 @@ dep 'firebug.firefox_extension' do
   source 'https://addons.mozilla.org/firefox/downloads/latest/1843/addon-1843-latest.xpi'
 end
 
-dep 'fast-dial.firefox_extension' do
-  source 'https://addons.mozilla.org/firefox/downloads/latest/fast-dial-5721/addon-fast-dial-5721-latest.xpi'
-end
+#dep 'fast-dial.firefox_extension' do
+#  source 'https://addons.mozilla.org/firefox/downloads/latest/fast-dial-5721/addon-fast-dial-5721-latest.xpi'
+#end
 
 dep 'firesass.firefox_extension' do
   requires 'firebug.firefox_extension'
@@ -48,10 +48,14 @@ dep 'tab-mixin-plus.firefox_extension' do
   source 'https://addons.mozilla.org/firefox/downloads/latest/1122/addon-1122-latest.xpi'
 end
 
-dep 'screengrab.firefox_extension' do
-  source 'https://addons.mozilla.org/firefox/downloads/latest/1146/addon-1146-latest.xpi'
-end
+#dep 'screengrab.firefox_extension' do
+#  source 'https://addons.mozilla.org/firefox/downloads/latest/1146/addon-1146-latest.xpi'
+#end
 
-dep 'json-view.firefox_extension' do
-  source 'https://addons.mozilla.org/firefox/downloads/latest/10869/addon-10869-latest.xpi'
-end
+#dep 'json-view.firefox_extension' do
+#  source 'https://addons.mozilla.org/firefox/downloads/latest/10869/addon-10869-latest.xpi'
+#end
+
+#dep 'delicious.firefox_extension' do
+#  source 'https://addons.mozilla.org/firefox/downloads/file/120138/delicious_extension-2.2-fx.xpi?src=addondetail'
+#end

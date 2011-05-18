@@ -1,5 +1,6 @@
 dep 'rails-station' do
   requires 'git',
+           'terminator.managed',
            'gitg',
            'rubygems',
            'ruby 1.8.7 with.rvm_ruby',
@@ -8,8 +9,13 @@ dep 'rails-station' do
            'balsamiq',
            'latest meld',
            'nginx',
-           'postgres',
-           'latest coffee-script'
+           'latest coffee-script',
+           'pg.gem',
+           'mongo.gem',
+           'nokogiri.gem',
+           'sqlite3.gem',
+           'benhoskings:mysql.gem',
+           'bundler.gem'
 
   setup do
     set :rubymine_install_path,  '/usr/local/rubymine'

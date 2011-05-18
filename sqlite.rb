@@ -1,9 +1,9 @@
-dep 'sqlite.managed' do
+dep 'sqlite3.managed' do
   installs 'libsqlite3-dev'
   provides []
 end
 
 dep 'sqlite3.gem' do
-  requires 'sqlite.managed'
+  requires 'sqlite3.managed'
   provides []
 end

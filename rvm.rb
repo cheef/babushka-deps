@@ -11,13 +11,13 @@ dep 'installed.rvm' do
 end
 
 dep 'installed under current user.rvm' do
-  met? { raw_which 'rvm', login_shell('which rvm') }
+  met? { not failable_shell('which rvm').blank? }
   meet do
     log_shell "Installing rvm using rvm-install-head",
               %{bash -c "`curl -L http://rvm.beginrescueend.com/releases/rvm-install-head`"}
   end
   after do
-    log_shell "Loading rvm environment to current session", "source ~/.rvm/scripts/rvm"
+    log_shell "Loading rvm environment to current session", "source #{'~/.rvm/scripts/rvm'.p}"
   end
 end
 

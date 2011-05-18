@@ -8,18 +8,17 @@ dep 'cheef-brew' do
   requires 'rails-station',
            'unrar',
            'keepassx',
-           'terminator.managed',
            'compizconfig-settings-manager.managed',
 
            'latest firefox',
            'firebug.firefox_extension',
-           'fast-dial.firefox_extension',
+#           'fast-dial.firefox_extension',
            'firesass.firefox_extension',
            'colorzilla.firefox_extension',
            'adblock-plus.firefox_extension',
            'tab-mixin-plus.firefox_extension',
-           'screengrab.firefox_extension',
-           'json-view.firefox_extension',
+#           'screengrab.firefox_extension',
+#           'json-view.firefox_extension',
 
            'gstreamer audio',
            'gstreamer video',
@@ -29,5 +28,5 @@ dep 'cheef-brew' do
            'adobe flash',
            'skype',
            'virtual_box',
-           'dropbox from sources'
+           'nautilus-dropbox.src'
 end
